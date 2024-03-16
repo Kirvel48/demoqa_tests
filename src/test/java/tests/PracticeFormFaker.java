@@ -1,11 +1,12 @@
 package tests;
 
+import TestsData.TestsData;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
 import pages.components.CalendarComponent;
 import pages.components.TableResponseComponent;
 
-import static tests.TestsData.*;
+import static TestsData.TestsData.*;
 
 
 public class PracticeFormFaker extends TestsBase {

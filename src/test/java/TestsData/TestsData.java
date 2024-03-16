@@ -1,12 +1,9 @@
-package tests;
+package TestsData;
 import com.github.javafaker.Faker;
-import org.testng.annotations.Test;
 
 import java.util.Locale;
 
-import static java.lang.String.valueOf;
 
-@Test
 public class TestsData {
     static Faker faker = new Faker(new Locale("en"));
     static String firstName, lastName, userEmail, userNumber, gender, hobbies, subject, address,
@@ -55,7 +52,7 @@ public class TestsData {
         return subject = faker.options().option("Biology", "Chemistry", "Economics", "English", "Hindi", "History", "Maths");
     }
     public static String getFileName() {
-        return state = faker.options().option("Screenshot_6.jpg", "Screenshot_7.jpg");
+        return fileName = faker.options().option("Screenshot_6.jpg", "Screenshot_7.jpg");
     }
 
     public static String getGender() {
