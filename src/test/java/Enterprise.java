@@ -6,29 +6,20 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+
 public class Enterprise {
     @BeforeAll
-    static void resolutionAndUrl() {
+    static void setConfig() {
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://github.com";
         Configuration.pageLoadStrategy = "eager";
     }
 
     @Test
-    void GitLabEnterprise() {
-        // - Откройте страницу в Github
+    void openPageEnterprise() {
         open("https://github.com");
-
-
-        //Выберите меню Solutions -> Enterprise
         $("header").$(withText("Solutions")).hover();
         $("[aria-labelledby=solutions-for-heading]").$(withText("Enterprise")).click();
-
-        //Проверка перехода на страницу https://github.com/enterprise
         $(".font-mktg").shouldHave(Condition.text("To build, scale, and deliver secure software."));
-
-
-
 
 
     }
