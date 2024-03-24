@@ -6,8 +6,20 @@ import java.util.Locale;
 
 public class TestsData {
     static Faker faker = new Faker(new Locale("en"));
-    static String firstName, lastName, userEmail, userNumber, gender, hobbies, subject, address,
-            state, city, day, month, year,fileName;
+    public static String firstName;
+    public static String lastName;
+    public static String userEmail;
+    public static String userNumber;
+    public static String hobbies;
+    public static String gender;
+    public static String subject;
+    public static String address;
+    public static String state;
+    public static String city;
+    public static String day;
+    public static String month;
+    public static String year;
+    public static String fileName;
 
     public static String getFirstName() {
         return firstName = faker.name().firstName();

@@ -1,8 +1,7 @@
 package tests;
 
-import TestsData.TestsData;
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPage;
+import pages.PracticeFormPagePO;
 import pages.components.CalendarComponent;
 import pages.components.TableResponseComponent;
 
@@ -10,9 +9,7 @@ import static TestsData.TestsData.*;
 
 
 public class PracticeFormFaker extends TestsBase {
-    PracticeFormPage practiceFormPage = new PracticeFormPage();
-    TestsData testsData = new TestsData();
-
+    PracticeFormPagePO practiceFormPage = new PracticeFormPagePO();
     CalendarComponent calendarComponent = new CalendarComponent();
     TableResponseComponent tableResponseComponent = new TableResponseComponent();
     String firstName = getFirstName();
@@ -31,7 +28,6 @@ public class PracticeFormFaker extends TestsBase {
     String fileName = getFileName();
 
 
-
     @Test
     void fillFormTests() {
         practiceFormPage.openPage()
@@ -47,9 +43,8 @@ public class PracticeFormFaker extends TestsBase {
                 .setCity(city)
                 .uploadFile(fileName);
 
-        calendarComponent.setDate(day,month,year);
+        calendarComponent.setDate(day, month, year);
         practiceFormPage.clickSubmit();
-
 
 
         tableResponseComponent.checkResult(firstName)
@@ -85,12 +80,13 @@ public class PracticeFormFaker extends TestsBase {
                 .setCity(city)
                 .uploadFile(fileName);
 
-        calendarComponent.setDate(day,month,year);
+        calendarComponent.setDate(day, month, year);
         practiceFormPage.clickSubmit();
 
         practiceFormPage.submitEnable();
 
     }
+
     @Test
     void fillFormTestsMandatory() {
         practiceFormPage.openPage()

@@ -1,106 +1,93 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPage;
+import pages.PracticeFormPagePO;
 import pages.components.CalendarComponent;
 import pages.components.TableResponseComponent;
+import TestsData.TeststDataPO;
 
-import static com.codeborne.selenide.Selenide.$;
+import static TestsData.TeststDataPO.gender;
+import static TestsData.TeststDataPO.lastName;
 
 public class AutomationPracticeForm extends TestsBase {
-    PracticeFormPage practiceFormPage = new PracticeFormPage();
+    PracticeFormPagePO practiceFormPage = new PracticeFormPagePO();
     CalendarComponent calendarComponent = new CalendarComponent();
     TableResponseComponent tableResponseComponent = new TableResponseComponent();
-    String firstName = "Kir";
-    String lastName = "Vel";
-    String userEmail = "KirVel@gmail.com";
-    String userNumber = "9999999999";
-    String gender = "Male";
-    String hobbies = "Sports";
-    String subject = "Maths";
-    String address = "Russia,Moscow, Red Square,1";
-    String state = "Uttar Pradesh";
-    String city = "Merrut";
-    String day = "30";
-    String month = "May";
-    String year = "1994";
-    String fileName = "Screenshot_6.jpg";
-
 
 
     @Test
     void fillFormTests() {
         practiceFormPage.openPage()
-                .setFirstName(firstName)
+                .setFirstName(TeststDataPO.firstName)
                 .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setUserNumber(userNumber)
+                .setUserEmail(TeststDataPO.userEmail)
+                .setUserNumber(TeststDataPO.userNumber)
                 .setGender(gender)
-                .setAddress(address)
-                .setHobbies(hobbies)
-                .setSubjects(subject)
-                .setState(state)
-                .setCity(city)
-                .uploadFile(fileName);
+                .setAddress(TeststDataPO.address)
+                .setHobbies(TeststDataPO.hobbies)
+                .setSubjects(TeststDataPO.subject)
+                .setState(TeststDataPO.state)
+                .setCity(TeststDataPO.city)
+                .uploadFile(TeststDataPO.fileName);
 
-        calendarComponent.setDate(day,month,year);
+        calendarComponent.setDate(TeststDataPO.day, TeststDataPO.month, TeststDataPO.year);
         practiceFormPage.clickSubmit();
 
 
-
-        tableResponseComponent.checkResult(firstName)
+        tableResponseComponent.checkResult(TeststDataPO.firstName)
                 .checkResult(lastName)
-                .checkResult(userEmail)
-                .checkResult(userNumber)
+                .checkResult(TeststDataPO.userEmail)
+                .checkResult(TeststDataPO.userNumber)
                 .checkResult(gender)
-                .checkResult(subject)
-                .checkResult(hobbies)
-                .checkResult(city)
-                .checkResult(state)
-                .checkResult(address)
-                .checkResult(day)
-                .checkResult(month)
-                .checkResult(year);
+                .checkResult(TeststDataPO.subject)
+                .checkResult(TeststDataPO.hobbies)
+                .checkResult(TeststDataPO.city)
+                .checkResult(TeststDataPO.state)
+                .checkResult(TeststDataPO.address)
+                .checkResult(TeststDataPO.day)
+                .checkResult(TeststDataPO.month)
+                .checkResult(TeststDataPO.year);
 
-                practiceFormPage.clickClose();
+        practiceFormPage.clickClose();
 
     }
 
     @Test
     void fillFormTestsnegative() {
         practiceFormPage.openPage()
-                .setFirstName(firstName)
+                .setFirstName(TeststDataPO.firstName)
                 .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setUserNumber(userNumber)
+                .setUserEmail(TeststDataPO.userEmail)
+                .setUserNumber(TeststDataPO.userNumber)
                 .setGender(gender)
-                .setAddress(address)
-                .setHobbies(hobbies)
-                .setSubjects(subject)
-                .setState(state)
-                .setCity(city)
-                .uploadFile(fileName);
+                .setAddress(TeststDataPO.address)
+                .setHobbies(TeststDataPO.hobbies)
+                .setSubjects(TeststDataPO.subject)
+                .setState(TeststDataPO.state)
+                .setCity(TeststDataPO.city)
+                .uploadFile(TeststDataPO.fileName);
 
-        calendarComponent.setDate(day,month,year);
+        calendarComponent.setDate(TeststDataPO.day, TeststDataPO.month, TeststDataPO.year);
         practiceFormPage.clickSubmit();
 
-practiceFormPage.submitEnable();
+        practiceFormPage.submitEnable();
 
     }
+
     @Test
     void fillFormTestsMandatory() {
-practiceFormPage.openPage()
-        .setFirstName(firstName)
-        .setLastName(lastName)
-        .setUserEmail(userEmail)
-        .setUserNumber(userNumber)
-        .setGender(gender)
-        .clickSubmit();
+        practiceFormPage.openPage()
+                .setFirstName(TeststDataPO.firstName)
+                .setLastName(lastName)
+                .setUserEmail(TeststDataPO.userEmail)
+                .setUserNumber(TeststDataPO.userNumber)
+                .setGender(gender)
+                .clickSubmit();
 
-tableResponseComponent.checkResult(firstName)
+        tableResponseComponent.checkResult(TeststDataPO.firstName)
                 .checkResult(lastName)
-                .checkResult(userEmail)
-                .checkResult(userNumber)
+                .checkResult(TeststDataPO.userEmail)
+                .checkResult(TeststDataPO.userNumber)
                 .checkResult(gender);
 
     }
